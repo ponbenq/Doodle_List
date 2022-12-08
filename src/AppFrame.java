@@ -26,7 +26,7 @@ public class AppFrame extends JFrame implements ActionListener {
         this.setSize(400, 320);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setTitle("Doodle-List");
-        this.setBackground(new Color(191,225,246));
+        this.getContentPane().setBackground(new Color(191,225,246));
 //        // Load the background image from a file
 //        BufferedImage backgroundImage = null;
 //        try {
@@ -96,8 +96,6 @@ public class AppFrame extends JFrame implements ActionListener {
         this.setLayout(null);
         this.setResizable(false);
         this.setVisible(true);
-
-
     }
     @Override
     public void actionPerformed(ActionEvent e){
@@ -114,7 +112,7 @@ public class AppFrame extends JFrame implements ActionListener {
                 String combineText = inputText + ": " + formattedDate;
 
                 //put the input to file
-                File file = new File("/Users/b4enq/IdeaProjects/ToDoList/allList/"+LoginFrame.folderName+"/list_"+LoginFrame.folderName+".txt");
+                File file = new File("allList/"+LoginFrame.folderName+"/list_"+LoginFrame.folderName+".txt");
                 Scanner scanner = new Scanner(file);
                 String originalString = "";
 
@@ -132,14 +130,9 @@ public class AppFrame extends JFrame implements ActionListener {
             } else if (e.getSource() == deleteButton) {
                 int index = list.getSelectedIndex();
                 if (index != -1) {
-                    //concat string before use it as a key because I put time in str,
-                    String text = "";
-                    for(int i = 0; i < ((String)listModel.get(index)).length(); i++){
-                        //separate with colon
-                        if(((String)listModel.get(index)).charAt(i) == ':')
-                            break;
-                        text +=((String)listModel.get(index)).charAt(i);
-                    }
+                    //get text from 
+                    String text = (String)listModel.get(index);
+                    System.out.println(text);
                     //convert to Object type
                     Object obj = text;
 
