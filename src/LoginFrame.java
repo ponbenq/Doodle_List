@@ -68,8 +68,8 @@ public class LoginFrame  implements ActionListener {
         try {
             if (e.getSource() == submitButton) {
                 //file manipulate
-                File file = new File("/Users/b4enq/IdeaProjects/ToDoList/src/authentication-details.txt");
-                BufferedReader reader = new BufferedReader(new FileReader("/Users/b4enq/IdeaProjects/ToDoList/src/authentication-details.txt"));
+                File file = new File("src/authentication-details.txt");
+                BufferedReader reader = new BufferedReader(new FileReader("src/authentication-details.txt"));
                 String line;
 
                 String user = "";

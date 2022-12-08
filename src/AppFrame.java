@@ -114,7 +114,7 @@ public class AppFrame extends JFrame implements ActionListener {
                 String combineText = inputText + ": " + formattedDate;
 
                 //put the input to file
-                File file = new File("/Users/b4enq/IdeaProjects/ToDoList/allList/"+LoginFrame.folderName+"/list_"+LoginFrame.folderName+".txt");
+                File file = new File("allList/"+LoginFrame.folderName+"/list_"+LoginFrame.folderName+".txt");
                 Scanner scanner = new Scanner(file);
                 String originalString = "";
 
@@ -147,7 +147,7 @@ public class AppFrame extends JFrame implements ActionListener {
                     listModel.remove(index);
 
                     //remove in file
-                    Path filePath = Paths.get("/Users/b4enq/IdeaProjects/ToDoList/allList/"+LoginFrame.folderName+"/list_"+LoginFrame.folderName+".txt");
+                    Path filePath = Paths.get("allList/"+LoginFrame.folderName+"/list_"+LoginFrame.folderName+".txt");
                     List<String> lines = Files.readAllLines(filePath);
                     lines.remove(index);
                     Files.write(filePath, lines, StandardOpenOption.TRUNCATE_EXISTING);
@@ -170,7 +170,7 @@ public class AppFrame extends JFrame implements ActionListener {
     }
     public void loadList(){
         try {
-            File listDirectory = new File("/Users/b4enq/IdeaProjects/ToDoList/allList/"+LoginFrame.folderName);
+            File listDirectory = new File("allList/"+LoginFrame.folderName);
             if(!listDirectory.exists()){
                 //create directory
                 listDirectory.mkdir();
@@ -179,7 +179,7 @@ public class AppFrame extends JFrame implements ActionListener {
                 listFile.createNewFile();
             }else{
                 //read data from file
-                Path filePath = Paths.get("/Users/b4enq/IdeaProjects/ToDoList/allList/"+LoginFrame.folderName+"/list_"+LoginFrame.folderName+".txt");
+                Path filePath = Paths.get("allList/"+LoginFrame.folderName+"/list_"+LoginFrame.folderName+".txt");
                 List<String> lines = Files.readAllLines(filePath);
                 if(lines.size() != 0) {
                     for (int i = 0; i <= lines.size() - 1; i++) {
